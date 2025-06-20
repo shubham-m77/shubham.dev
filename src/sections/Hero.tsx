@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg"
-import ArrowUp from "@/assets/icons/arrow-up-right.svg"
-import memoji from "@/assets/images/memoji-computer.png"
 import profile from "@/assets/images/profile_pic.png"
 import grainImg from "@/assets/images/grain.jpg"
 import { motion } from "framer-motion";
@@ -10,8 +8,7 @@ import StarIcon from "@/assets/icons/star.svg"
 import { HeroOrbit } from "@/components/HeroOrbit";
 import CodeIcon from "@/assets/icons/code.svg"
 import SparkleIcon  from "@/assets/icons/sparkle.svg"
-import { useEffect, useState } from "react";
-import { TypewriterEffect, TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
 import { useContactBox } from "@/context/ContactContext";
 export const HeroSection = () => {
@@ -60,33 +57,34 @@ const typewriteWord = "Shubham Mandal"
 <motion.div
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
+  transition={{ duration: 0.6 }}
 >
-  <motion.img
-    src={profile.src}
-    alt="Coder img"
-    className="relative w-[200px] md:w-[250px]"
-    initial={{ y: 0 }}
+  <motion.div
     animate={{ y: [0, -10, 0] }}
-    transition={{
-      duration: 3,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    }}
-  />
+    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+  >
+    <Image
+      src={profile}
+      alt="Coder img"
+      width={250}
+      height={250}
+      priority // 👈 this makes it load faster
+      className="relative w-[200px] md:w-[250px]"
+    />
+  </motion.div>
 </motion.div>
      
       <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
             className="text-base md:text-lg font-medium text-gray-200 mt-4"
           >
         Hey, I’m
       </motion.div>
       <motion.div   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.2, duration: 0.5 }}>
+ transition={{ delay: 0.7, duration: 0.5 }}>
      <h1
   className="text-2xl flex md:text-4xl font-semibold font-serif mt-1"
 >
@@ -104,7 +102,7 @@ const typewriteWord = "Shubham Mandal"
      <motion.p
   initial={{ opacity: 0, y: 10 }}
   animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 1.6, duration: 0.8, ease: "easeOut" }}
+  transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
   className="text-sm md:text-base text-medium text-gray-400 mt-2 text-center md:text-left"
 >
   I’m a full stack web developer who turns ideas into engaging digital experiences.  
@@ -113,29 +111,49 @@ const typewriteWord = "Shubham Mandal"
 </motion.p>
 
       <div className="flex mt-4 flex-col gap-2 md:gap-4 md:flex-row items-center justify-center font-medium">
-        <motion.button onClick={()=> router.push("#projects")}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }} className="inline-flex transition-all duration-300 group h-10 px-6 gap-1 border-white/20 hover:border-white border-2 rounded-xl text-sm items-center justify-center ">
-          <span>Explore my work</span>
-          <motion.span initial={{ rotate: 0 }}
-    whileHover={{ rotate: 20 }}
-    transition={{ type: 'spring', stiffness: 200 }}><ArrowDown className="w-[20px] duration-300 transition group-hover:translate-y-0.5"/></motion.span>
-
-        </motion.button>
-        <motion.button onClick={()=> router.push("#contact")}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="inline-flex group px-6 gap-1 rounded-xl text-sm bg-white/20 hover:bg-white transition-all duration-300 text-white hover:text-gray-900 items-center justify-center h-10"
->
-  <span>Let's Connect</span>
-  <motion.span
-    initial={{ rotate: 0 }}
-    whileHover={{ rotate: 20 }}
-    transition={{ type: 'spring', stiffness: 200 }}
+       {/* Explore My Work Button */}
+  <motion.button
+    onClick={() => {
+      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    }}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.8, duration: 0.4, ease: "easeOut" }}
+    className="inline-flex transition-all duration-300 group h-10 px-6 gap-1 border-white/20 hover:border-white border-2 rounded-xl text-sm items-center justify-center"
   >
-    👋
-  </motion.span>
-</motion.button>
+    <span>Explore my work</span>
+    <motion.span
+      initial={{ rotate: 0 }}
+      whileHover={{ rotate: 20 }}
+      transition={{ type: "spring", stiffness: 200 }}
+    >
+      <ArrowDown className="w-[20px] duration-300 transition group-hover:translate-y-0.5" />
+    </motion.span>
+  </motion.button>
+
+  {/* Let's Connect Button */}
+  <motion.button
+    onClick={() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1.0, duration: 0.4, ease: "easeOut" }}
+    className="inline-flex group px-6 gap-1 rounded-xl text-sm bg-white/20 hover:bg-white transition-all duration-300 text-white hover:text-gray-900 items-center justify-center h-10"
+  >
+    <span>Let's Connect</span>
+    <motion.span
+      initial={{ rotate: 0 }}
+      whileHover={{ rotate: 20 }}
+      transition={{ type: "spring", stiffness: 200 }}
+    >
+      👋
+    </motion.span>
+  </motion.button>
 
       </div></div>
     </div>

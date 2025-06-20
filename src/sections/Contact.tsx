@@ -35,8 +35,7 @@ export const ContactSection = () => {
             <button
               onClick={() => {
                 setIsContactBoxOpen(true);
-                router.push("#contact-form");
-              }}
+                document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });              }}
               className="text-white rounded-2xl bg-gray-900 transition-all ease-linear duration-300 h-11 px-6 md:px-5 mt-7 md:mt-0 items-center gap-1.5 inline-flex hover:bg-gray-950 group"
             >
               Contact Me
@@ -56,7 +55,7 @@ export const ContactSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-screen z-[9999"
+            className="absolute top-0 left-0 w-full h-screen z-[9999] bg-gray-900/80 backdrop-blur-sm flex items-center justify-center px-4"
           >
             <ContactForm className="" />
           </motion.div>

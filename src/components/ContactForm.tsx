@@ -85,7 +85,7 @@ const ContactForm = ({ className }: { className?: string }) => {
     animate={{ opacity: 1, scale: 1, y: 0 }}
     exit={{ opacity: 0, scale: 0.9, y: 40 }}
     transition={{ duration: 0.4, ease: "easeInOut" }}
-    className={twMerge("w-full text-gray-700 h-full bg-black/20 flex px-4 items-center justify-center backdrop-blur rounded", className)}
+    className={twMerge("w-full text-gray-700 h-full bg-black/20 flex px-4 items-center justify-center backdrop-blur-sm rounded", className)}
   ><div className="grid md:w-[70%] relative grid-cols-1 lg:grid-cols-3 gap-6 bg-white rounded-xl p-4 shadow-md">
         
         {/* Close button */}
