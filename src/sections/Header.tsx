@@ -1,5 +1,4 @@
 'use client';
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const sections = ["home", "projects", "about", "contact"];
@@ -37,19 +36,19 @@ export const Header = () => {
         <h2 className="text-xl font-serif font-medium px-8 tracking-tight">shubham<span className="text-blue-700">.</span>dev</h2>
       </div>
       <ul className="flex   items-center md:ml-auto md:top-0 sticky md:relative bg-white/10 backdrop:blur md:bg-none md:backdrop-blur-none rounded-full z-30">
-        <Link href="" onClick={() => {
+        <a onClick={() => {
       document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
     }}
-     className={`navlink ${active === "home" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>Home</li></Link>
-        <Link href={""}  onClick={() => {
+     className={`navlink ${active === "home" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>Home</li></a>
+        <a   onClick={() => {
       document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-    }} className={`navlink ${active === "projects" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>Projects</li></Link>
-        <Link href={""}  onClick={() => {
+    }} className={`navlink ${active === "projects" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>Projects</li></a>
+        <a  onClick={() => {
       document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-    }} className={`navlink ${active === "about" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>About</li></Link>
-        <Link href={""}  onClick={() => {
+    }} className={`navlink ${active === "about" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>About</li></a>
+        <a  onClick={() => {
       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    }} className={`navlink ${active === "contact" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>Contact</li></Link>
+    }} className={`navlink ${active === "contact" ? "bg-gray-50  text-gray-900 hover:bg-white/70" : ""}`}><li>Contact</li></a>
 
       </ul>
     </nav>

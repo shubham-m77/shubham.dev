@@ -120,7 +120,7 @@ export const TypewriterEffectSmooth = ({
         transition={{
           duration: 1.8,
           ease: "linear",
-          delay: 0.7,
+          delay: 0.2,
         }}
       >
         <div className="whitespace-nowrap">

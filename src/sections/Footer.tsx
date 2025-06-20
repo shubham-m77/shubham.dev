@@ -1,4 +1,3 @@
-import Link from "next/link";
 const footerLinks= [
   {
     title:"Facebook",
@@ -22,14 +21,22 @@ const footerLinks= [
   },
 ]
 export const Footer = () => {
-  return <footer className="relative -z-10 overflow-x-clip">
-    <div className="absolute h-[400px] -z-10 w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-blue-700/30 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)]"></div>
+  return <footer className="relative z-10 overflow-x-clip pointer-events-auto">
+    <div className="absolute h-[400px] -z-10 w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-blue-700/30 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] "></div>
     <div className="px-4 md:px-14 lg:px-20">
       <div className="border-t justify-center md:justify-between gap-8 md:gap-0  flex flex-col-reverse  md:flex-row items-center border-white/15 py-6 text-sm">
         <div className="text-white/80">&copy; 2025 All Rights Reserved</div>
         <nav className="flex justify-center flex-col md:flex-row gap-5">
           {footerLinks.map(link=>
-            <Link key={link.title} className="font-medium gap-1.5 inline-flex items-center text-white" href={link.href}><span className="size-6">{link.icon}</span>{link.title}</Link>
+<a
+  key={link.title}
+  href={link.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="font-medium gap-1.5 inline-flex items-center text-white"
+>
+  <span className="size-6">{link.icon}</span>{link.title}
+</a>
           )}
         </nav>
       </div>
