@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 import grainImg from "@/assets/images/grain.jpg";
 import toast from "react-hot-toast";
 import ArrowIcon from "@/assets/icons/arrow-up-right.svg";
-
+import { motion } from "framer-motion";
 
 const ContactForm = ({ className }: { className?: string }) => {
   const { isContactBoxOpen, setIsContactBoxOpen } = useContactBox();
@@ -80,8 +80,13 @@ const ContactForm = ({ className }: { className?: string }) => {
   };
 
   return (
-    <div className={twMerge("w-full text-gray-700  h-full bg-black/20 flex px-4 items-center justify-center backdrop-blur rounded", className)}>
-      <div className="grid md:w-[70%] relative grid-cols-1 lg:grid-cols-3 gap-6 bg-white rounded-xl p-4 shadow-md">
+    <motion.div
+    initial={{ opacity: 0, scale: 0.95, y: 30 }}
+    animate={{ opacity: 1, scale: 1, y: 0 }}
+    exit={{ opacity: 0, scale: 0.9, y: 40 }}
+    transition={{ duration: 0.4, ease: "easeInOut" }}
+    className={twMerge("w-full text-gray-700 h-full bg-black/20 flex px-4 items-center justify-center backdrop-blur rounded", className)}
+  ><div className="grid md:w-[70%] relative grid-cols-1 lg:grid-cols-3 gap-6 bg-white rounded-xl p-4 shadow-md">
         
         {/* Close button */}
         <button
@@ -176,7 +181,7 @@ const ContactForm = ({ className }: { className?: string }) => {
           </form>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

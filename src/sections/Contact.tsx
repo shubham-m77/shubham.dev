@@ -4,10 +4,10 @@ import ArrowIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImg from "@/assets/images/grain.jpg";
 import ContactForm from "@/components/ContactForm";
 import { useContactBox } from "@/context/ContactContext";
-import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const ContactSection = () => {
-  const { isContactBoxOpen, setIsContactBoxOpen,router } = useContactBox();
+  const { isContactBoxOpen, setIsContactBoxOpen, router } = useContactBox();
 
   return (
     <div
@@ -36,7 +36,6 @@ export const ContactSection = () => {
               onClick={() => {
                 setIsContactBoxOpen(true);
                 router.push("#contact-form");
-               
               }}
               className="text-white rounded-2xl bg-gray-900 transition-all ease-linear duration-300 h-11 px-6 md:px-5 mt-7 md:mt-0 items-center gap-1.5 inline-flex hover:bg-gray-950 group"
             >
@@ -47,20 +46,22 @@ export const ContactSection = () => {
         </div>
       </div>
 
-      {/* Contact Form Overlapping in the same section */}
-     {isContactBoxOpen && <div id="contact-form"
-        className={clsx(
-          "absolute top-0 left-0 w-full min-h-screen h-screen z-50 transition-all duration-500",
-          {
-            "block pointer-events-auto translate-y-0":
-              isContactBoxOpen,
-            "hidden pointer-events-none -translate-y-10":
-              !isContactBoxOpen,
-          }
+      {/* Contact Form Overlay with Animation */}
+      <AnimatePresence>
+        {isContactBoxOpen && (
+          <motion.div
+            id="contact-form"
+            key="contactForm"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute top-0 left-0 w-full h-screen z-[9999"
+          >
+            <ContactForm className="" />
+          </motion.div>
         )}
-      >
-        <ContactForm className={""} />
-      </div>} 
+      </AnimatePresence>
     </div>
   );
 };
