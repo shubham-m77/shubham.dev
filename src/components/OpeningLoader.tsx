@@ -1,12 +1,26 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+
+const name = "Shubham M";
 
 export const OpeningLoader = () => {
   const [showIntro, setShowIntro] = useState(true);
+  const [displayed, setDisplayed] = useState("");
 
+  // Typing effect
   useEffect(() => {
-    const timer = setTimeout(() => setShowIntro(false), 2500);
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayed(name.slice(0, i + 1));
+      i++;
+      if (i === name.length) clearInterval(interval);
+    }, 120);
+  }, []);
+
+  // Intro duration
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIntro(false), 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -14,24 +28,20 @@ export const OpeningLoader = () => {
     <AnimatePresence>
       {showIntro && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-blue-900 via-black to-neutral-950"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-black via-blue-900 to-black"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2 }}
         >
           <motion.h1
-            className="text-white text-5xl md:text-7xl font-extrabold tracking-wide"
-            initial={{ opacity: 0, letterSpacing: "-0.25em", scale: 0.8 }}
-            animate={{ opacity: 1, letterSpacing: "0em", scale: 1 }}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-400 text-5xl md:text-7xl font-extrabold tracking-widest drop-shadow-lg"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
-            transition={{
-              duration: 1.4,
-              ease: [0.42, 0, 0.58, 1],
-            }}
+            transition={{ duration: 1 }}
           >
-            <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-sky-500 bg-clip-text text-transparent">
-              Shubham M
-            </span>
+            {displayed}
+            <span className="animate-pulse text-blue-300">_</span>
           </motion.h1>
         </motion.div>
       )}
