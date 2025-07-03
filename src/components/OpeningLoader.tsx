@@ -3,25 +3,32 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const OpeningLoader = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsVisible(false), 1600); // fast exit
-    return () => clearTimeout(timeout);
+    const timer = setTimeout(() => setShowIntro(false), 2200); // total animation time
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <AnimatePresence>
-      {isVisible && (
-       <motion.div
-  className="text-center text-3xl font-semibold tracking-wide"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <span className="animate-pulse">Shubham M</span>
-</motion.div>
-
+      {showIntro && (
+        <motion.div
+          className="fixed inset-0 z-50 bg-gradient-to-b from-black via-neutral-900 to-black flex items-center justify-center"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.h1
+            className="text-white text-4xl md:text-6xl font-bold tracking-wide"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 1.2 }}
+          >
+            Shubham M
+          </motion.h1>
+        </motion.div>
       )}
     </AnimatePresence>
   );
