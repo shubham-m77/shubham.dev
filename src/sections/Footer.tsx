@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const footerLinks= [
   {
     title:"Facebook",
@@ -52,16 +54,17 @@ export const Footer = () => {
         <div className="text-white/80">&copy; 2025 All Rights Reserved</div>
         <nav className="flex justify-center flex-wrap md:flex-row gap-6 z-10 relative">
           {footerLinks.map(link=>
-<a
+<Link
   key={link.title}
   href={link.href}
   target="_blank"
+  rel="noopener noreferrer"
   title={link.title}
 
   className="font-medium gap-1.5 inline-flex items-center z-10 relative text-white"
 >
   <span className="size-6">{link.icon}</span>
-</a>
+</Link>
           )}
         </nav>
       </div>
