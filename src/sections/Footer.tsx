@@ -40,7 +40,7 @@ const footerLinks= [
     <polyline points="10 9 9 9 8 9" />
   </svg>,
   
-  href:"https://drive.google.com/file/d/1SJ3WYsrQESULAfCr2XZZ_kVdhHPS54Aw/view?usp=sharing",
+  href:"/Shubham_Mandal_Resume.pdf",
   },
 
 ]

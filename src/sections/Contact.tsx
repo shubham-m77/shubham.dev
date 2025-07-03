@@ -15,7 +15,7 @@ export const ContactSection = () => {
       className="relative py-14 md:py-16 lg:py-20 px-4 md:px-14 lg:px-20 w-full"
     >
       {/* Background Card */}
-      <div className="overflow-hidden relative z-0 text-center md:text-left rounded-2xl p-8 bg-gradient-to-r from-emerald-300 to-blue-700">
+      <div className="overflow-hidden relative z-20 text-center md:text-left rounded-2xl p-8 bg-gradient-to-r from-emerald-300 to-blue-700">
         <div
           className="absolute inset-0 opacity-5 -z-10 rounded-2xl"
           style={{ backgroundImage: `url(${grainImg.src})` }}

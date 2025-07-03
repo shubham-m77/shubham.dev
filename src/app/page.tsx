@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
     <OpeningLoader/>
-    <div className="relative z-0">
+    
       <Header/>
       <HeroSection/>
       <ProjectsSection/>
@@ -20,7 +20,6 @@ export default function Home() {
       <AboutSection/>
       <ContactSection/>
       <Footer/>
-    </div>
     </>
   );
 }
