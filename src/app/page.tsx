@@ -1,3 +1,4 @@
+import { OpeningLoader } from "@/components/OpeningLoader";
 import { AboutSection } from "@/sections/About";
 import { ContactSection } from "@/sections/Contact";
 import { Footer } from "@/sections/Footer";
@@ -8,7 +9,9 @@ import { TapeSection } from "@/sections/Tape";
 import { TestimonialsSection } from "@/sections/Testimonials";
 export default function Home() {
   return (
-    <div>
+    <>
+    <OpeningLoader/>
+    <div className="relative z-0">
       <Header/>
       <HeroSection/>
       <ProjectsSection/>
@@ -18,5 +21,6 @@ export default function Home() {
       <ContactSection/>
       <Footer/>
     </div>
+    </>
   );
 }
