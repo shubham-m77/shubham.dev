@@ -70,17 +70,17 @@ export const Header = () => {
     className="relative w-8 h-6 flex flex-col justify-between items-end group"
   >
     <span
-      className={`block h-1 w-[80%] rounded-full bg-gradient-to-r from-white to-gray-100  transition-transform duration-300 ease-in-out ${
+      className={`block h-1 w-[80%] rounded-full bg-gradient-to-r from-white to-gray-200  transition-transform duration-300 ease-in-out ${
         isMenuOpen ? "rotate-45 translate-y-2 C" : ""
       }`}
     />
     <span
-      className={`block h-1 w-full rounded-full bg-gradient-to-r from-white to-gray-100 transition-all duration-300 ease-in-out ${
+      className={`block h-1 w-full rounded-full bg-gradient-to-r from-white to-gray-200 transition-all duration-300 ease-in-out ${
         isMenuOpen ? "opacity-0" : ""
       }`}
     />
     <span
-      className={`block h-1 w-[65%] rounded-full bg-gradient-to-r from-white to-gray-100 transition-transform duration-300 ease-in-out ${
+      className={`block h-1 w-[65%] rounded-full bg-gradient-to-r from-white to-gray-200 transition-transform duration-300 ease-in-out ${
         isMenuOpen ? "-rotate-45 -translate-y-2 w-full" : ""
       }`}
     />
