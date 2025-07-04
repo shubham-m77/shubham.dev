@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body className={twMerge(urbanistFont.variable, firacode.variable, `min-h-screen font-sans bg-gray-900 text-white antialiased`)}>
+      <body className={twMerge(urbanistFont.variable, firacode.variable, `min-h-screen font-sans bg-gradient-to-b from-primary  to-gray-900 text-white antialiased`)}>
     
         <ContactBoxProvider>
              <Toaster />

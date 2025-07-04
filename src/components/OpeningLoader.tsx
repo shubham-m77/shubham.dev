@@ -1,7 +1,9 @@
-// components/OpeningLoader.tsx
 "use client";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Image from "next/image";
+
+const logo = "/dev_logo_2.svg";
 
 export const OpeningLoader = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,12 +36,16 @@ export const OpeningLoader = () => {
         ease: "power2.inOut",
         delay: 0.4,
       })
-      .to(containerRef.current, {
-        opacity: 0,
-        scale: 1.05,
-        duration: 0.6,
-        ease: "expo.inOut",
-      }, "-=0.3");
+      .to(
+        containerRef.current,
+        {
+          opacity: 0,
+          scale: 1.05,
+          duration: 0.6,
+          ease: "expo.inOut",
+        },
+        "-=0.3"
+      );
   }, []);
 
   if (hideLoader) return null;
@@ -47,13 +53,20 @@ export const OpeningLoader = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-blue-900 via-black to-blue-800 backdrop-blur-md"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-blue-900 via-black to-gray-900 backdrop-blur-md"
     >
       <div
         ref={textRef}
-        className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-blue-300 to-cyan-200 drop-shadow-[0_2px_15px_rgba(255,255,255,0.2)]"
+        className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36"
       >
-        Shubham M
+        <Image
+          src={logo}
+          alt="Logo"
+          fill
+          sizes="auto"
+          className="object-contain"
+          priority
+        />
       </div>
     </div>
   );
