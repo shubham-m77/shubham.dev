@@ -67,10 +67,10 @@ export const Header = () => {
         <div className="md:hidden z-50">
   <button
     onClick={() => setIsMenuOpen(!isMenuOpen)}
-    className="relative w-8 h-6 flex flex-col justify-between items-center group"
+    className="relative w-8 h-6 flex flex-col justify-between items-end group"
   >
     <span
-      className={`block h-1 w-full rounded-full bg-white transition-transform duration-300 ease-in-out ${
+      className={`block h-1 w-[80%] rounded-full bg-white transition-transform duration-300 ease-in-out ${
         isMenuOpen ? "rotate-45 translate-y-2" : ""
       }`}
     />
@@ -80,7 +80,7 @@ export const Header = () => {
       }`}
     />
     <span
-      className={`block h-1 w-full rounded-full bg-white transition-transform duration-300 ease-in-out ${
+      className={`block h-1 w-[65%] rounded-full bg-white transition-transform duration-300 ease-in-out ${
         isMenuOpen ? "-rotate-45 -translate-y-2" : ""
       }`}
     />
