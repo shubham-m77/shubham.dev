@@ -39,7 +39,7 @@ export const Header = () => {
 
   return (
     <div className="px-4 md:px-16 py-4 fixed z-30 w-full">
-      <nav className="flex items-center justify-between h-14 shadow-md rounded-full bg-black/30 backdrop-blur px-4 md:px-8">
+      <nav className="flex items-center justify-between h-14 shadow-md rounded-full bg-black/30 backdrop-blur px-4 md:px-8 ">
 
         {/* ✅ Left-aligned logo */}
         <div className="flex items-center h-full">
@@ -47,18 +47,18 @@ export const Header = () => {
             src={logo}
             alt="Logo"
             width={0}
-            height={40}
+            height={32}
             sizes="auto"
-            className="h-10 w-auto object-contain hidden md:block"
+            className="h-8 w-auto object-contain hidden md:block"
             priority
           />
           <Image
             src={logo_2}
             alt="Mobile Logo"
             width={0}
-            height={40}
+            height={32}
             sizes="auto"
-            className="h-10 w-auto object-contain block md:hidden"
+            className="h-8 w-auto object-contain block md:hidden"
             priority
           />
         </div>
@@ -71,7 +71,7 @@ export const Header = () => {
   >
     <span
       className={`block h-1 w-[80%] rounded-full bg-gradient-to-r from-white to-gray-200  transition-transform duration-300 ease-in-out ${
-        isMenuOpen ? "rotate-45 translate-y-2 C" : ""
+        isMenuOpen ? "rotate-45 translate-y-2 w-full" : ""
       }`}
     />
     <span
@@ -91,7 +91,7 @@ export const Header = () => {
      <ul
   className={`
     fixed top-20 left-4 right-4 flex-col gap-3 bg-black/70 rounded-2xl p-4 backdrop-blur-md transition-all duration-500 ease-in-out transform origin-top
-    ${isMenuOpen ? "flex opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-5 pointer-events-none"}
+    ${isMenuOpen ? "flex opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-5 pointer-events-auto"}
     md:static md:flex md:flex-row md:gap-4 md:bg-transparent md:backdrop-blur-none md:p-0 md:opacity-100 md:scale-100 md:translate-y-0
   `}
 >
