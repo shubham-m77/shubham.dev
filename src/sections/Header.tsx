@@ -71,7 +71,7 @@ export const Header = () => {
   >
     <span
       className={`block h-1 w-[80%] rounded-full bg-gradient-to-r from-white to-gray-100  transition-transform duration-300 ease-in-out ${
-        isMenuOpen ? "rotate-45 translate-y-2" : ""
+        isMenuOpen ? "rotate-45 translate-y-2 C" : ""
       }`}
     />
     <span
@@ -81,7 +81,7 @@ export const Header = () => {
     />
     <span
       className={`block h-1 w-[65%] rounded-full bg-gradient-to-r from-white to-gray-100 transition-transform duration-300 ease-in-out ${
-        isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+        isMenuOpen ? "-rotate-45 -translate-y-2 w-full" : ""
       }`}
     />
   </button>
