@@ -76,7 +76,7 @@ export const Header = () => {
         {/* ✅ Nav links */}
         <ul
           className={`
-            absolute top-20 left-4 right-4 flex-col gap-2 rounded-xl p-4 bg-black/60 backdrop-blur-md transition-all duration-300 justify-center
+            absolute top-16 left-4 right-4 flex-col gap-2 rounded-xl p-4 bg-black/60 backdrop-blur transition-all items-center duration-300 justify-center
             ${isMenuOpen ? "flex" : "hidden"}
             md:static md:flex md:flex-row md:gap-4 md:bg-transparent md:backdrop-blur-none md:p-0 md:top-auto md:left-auto md:right-auto md:justify-none
           `}
