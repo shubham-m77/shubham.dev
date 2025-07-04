@@ -88,29 +88,29 @@ export const Header = () => {
 </div>
 
 
-        {/* ✅ Nav links */}
-        <ul
-          className={`
-            absolute top-16 left-4 right-4 flex-col gap-2 rounded-xl p-4 bg-black/60 backdrop-blur transition-all items-center duration-300 justify-center
-            ${isMenuOpen ? "flex" : "hidden"}
-            md:static md:flex md:flex-row md:gap-4 md:bg-transparent md:backdrop-blur-none md:p-0 md:top-auto md:left-auto md:right-auto md:justify-none
-          `}
-        >
-          {sections.map((section) => (
-            <li key={section}>
-              <button
-                onClick={() => scrollToSection(section)}
-                className={`navlink px-4 py-2 rounded-full transition duration-200 ${
-                  active === section
-                    ? "bg-gray-50 text-gray-900 hover:bg-white/70"
-                    : "text-white hover:bg-white/20"
-                }`}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </button>
-            </li>
-          ))}
-        </ul>
+     <ul
+  className={`
+    fixed top-20 left-4 right-4 flex-col gap-3 bg-black/70 rounded-2xl p-4 backdrop-blur-md transition-all duration-500 ease-in-out transform origin-top
+    ${isMenuOpen ? "flex opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-5 pointer-events-none"}
+    md:static md:flex md:flex-row md:gap-4 md:bg-transparent md:backdrop-blur-none md:p-0 md:opacity-100 md:scale-100 md:translate-y-0
+  `}
+>
+  {sections.map((section) => (
+    <li key={section}>
+      <button
+        onClick={() => scrollToSection(section)}
+        className={`navlink px-4 py-2 rounded-full transition duration-200 ${
+          active === section
+            ? "bg-gray-50 text-gray-900 hover:bg-white/70"
+            : "text-white hover:bg-white/20"
+        }`}
+      >
+        {section.charAt(0).toUpperCase() + section.slice(1)}
+      </button>
+    </li>
+  ))}
+</ul>
+
       </nav>
     </div>
   );
