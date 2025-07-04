@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; // ✅ Professional icons
 
-const logo_2 = "/dev_logo_white_2.svg";
+const logo_2 = "/dev_logo_white-2.svg";
 const logo = "/dev_logo_white.svg";
 const sections = ["home", "projects", "about", "contact"];
 
