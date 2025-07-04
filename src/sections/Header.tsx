@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; // ✅ Professional icons
 
-const logo_2 = "/dev_logo_2.svg";
-const logo = "/dev_logo.svg";
+const logo_2 = "/dev_logo_white_2.svg";
+const logo = "/dev_logo_white.svg";
 const sections = ["home", "projects", "about", "contact"];
 
 export const Header = () => {
@@ -64,14 +64,29 @@ export const Header = () => {
         </div>
 
         {/* ✅ Hamburger icon for mobile */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white focus:outline-none"
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+        <div className="md:hidden z-50">
+  <button
+    onClick={() => setIsMenuOpen(!isMenuOpen)}
+    className="relative w-8 h-6 flex flex-col justify-between items-center group"
+  >
+    <span
+      className={`block h-1 w-full rounded-full bg-white transition-transform duration-300 ease-in-out ${
+        isMenuOpen ? "rotate-45 translate-y-2" : ""
+      }`}
+    />
+    <span
+      className={`block h-1 w-full rounded-full bg-white transition-all duration-300 ease-in-out ${
+        isMenuOpen ? "opacity-0" : ""
+      }`}
+    />
+    <span
+      className={`block h-1 w-full rounded-full bg-white transition-transform duration-300 ease-in-out ${
+        isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+      }`}
+    />
+  </button>
+</div>
+
 
         {/* ✅ Nav links */}
         <ul
