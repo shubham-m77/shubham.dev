@@ -1,40 +1,26 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import {Toaster} from "react-hot-toast";
-
 import { Fira_Code, Urbanist } from 'next/font/google';
 import { twMerge } from "tailwind-merge";
 import { ContactBoxProvider } from "@/context/ContactContext";
-import { OpeningLoader } from "@/components/OpeningLoader";
+import { Toaster } from "react-hot-toast";
 
-const firacode = Fira_Code({
-  subsets: ["latin"],
-  variable: '--font-serif',
-});
-const urbanistFont = Urbanist({
-  subsets: ["latin"],
-  variable: '--font-sans',
-});
+const firacode = Fira_Code({ subsets: ["latin"], variable: '--font-serif' });
+const urbanistFont = Urbanist({ subsets: ["latin"], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: "Shubham M - Web Developer",
+  title: "Shubham M - Full Stack Developer",
   description: "Full Stack Website Developer",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      
-      <body className={twMerge(urbanistFont.variable, firacode.variable, `min-h-screen font-sans bg-gradient-to-b from-primary  to-gray-900 text-white antialiased`)}>
-         <OpeningLoader />
+      <body className={twMerge(urbanistFont.variable, firacode.variable, "min-h-screen font-sans bg-gradient-to-b from-primary to-gray-900 text-white antialiased")}>
         <ContactBoxProvider>
-             <Toaster />
-             {children}
+          <Toaster />
+          {children}
         </ContactBoxProvider>
       </body>
     </html>
