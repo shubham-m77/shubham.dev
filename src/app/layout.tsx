@@ -6,6 +6,7 @@ import {Toaster} from "react-hot-toast";
 import { Fira_Code, Urbanist } from 'next/font/google';
 import { twMerge } from "tailwind-merge";
 import { ContactBoxProvider } from "@/context/ContactContext";
+import { OpeningLoader } from "@/components/OpeningLoader";
 
 const firacode = Fira_Code({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={twMerge(urbanistFont.variable, firacode.variable, `min-h-screen font-sans bg-gradient-to-b from-primary  to-gray-900 text-white antialiased`)}>
-    
+         <OpeningLoader />
         <ContactBoxProvider>
              <Toaster />
              {children}

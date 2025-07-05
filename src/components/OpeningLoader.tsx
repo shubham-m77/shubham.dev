@@ -1,73 +1,79 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const logo = "/dev_logo_2.svg";
 
 export const OpeningLoader = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
   const [hideLoader, setHideLoader] = useState(false);
 
-  useEffect(() => {
-    const tl = gsap.timeline({
-      onComplete: () => setHideLoader(true),
-    });
-
-    tl.set(containerRef.current, { opacity: 0 })
-      .set(textRef.current, { opacity: 0, y: 50, filter: "blur(10px)" })
-      .to(containerRef.current, {
-        opacity: 1,
-        duration: 0.4,
-        ease: "power2.out",
-      })
-      .to(textRef.current, {
-        opacity: 1,
-        y: 0,
-        filter: "blur(0px)",
-        duration: 1,
-        ease: "power4.out",
-      })
-      .to(textRef.current, {
-        y: -40,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.inOut",
-        delay: 0.4,
-      })
-      .to(
-        containerRef.current,
-        {
-          opacity: 0,
-          scale: 1.05,
-          duration: 0.6,
-          ease: "expo.inOut",
-        },
-        "-=0.3"
-      );
-  }, []);
-
-  if (hideLoader) return null;
-
   return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-blue-900 via-black to-gray-900 backdrop-blur-md"
-    >
-      <div
-        ref={textRef}
-        className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36"
-      >
-        <Image
-          src={logo}
-          alt="Logo"
-          fill
-          sizes="auto"
-          className="object-contain"
-          priority
-        />
-      </div>
-    </div>
+    <AnimatePresence>
+      {!hideLoader && (
+        <motion.div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { duration: 0.6, ease: "easeInOut" } }}
+        >
+          {/* Animated Glow in Background */}
+          <motion.div
+            className="absolute w-[30rem] h-[30rem] rounded-full bg-gradient-to-tr from-[#0ff] via-[#7f00ff] to-[#ff0099] opacity-20 blur-[120px]"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1.2, opacity: 0.2 }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "mirror",
+            }}
+          />
+
+          {/* LOGO with WOW Animation */}
+          <motion.div
+            className="relative w-32 h-32 md:w-40 md:h-40"
+            initial={{
+              opacity: 0,
+              scale: 0.4,
+              rotate: -30,
+              y: 60,
+              filter: "blur(20px)",
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1.2,
+              rotate: 0,
+              y: 0,
+              filter: "blur(0px)",
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.8,
+              rotate: 20,
+              y: -80,
+              filter: "blur(12px)",
+              transition: { duration: 0.8, ease: "easeInOut" },
+            }}
+            transition={{
+              duration: 1.2,
+              ease: "easeOut",
+            }}
+            onAnimationComplete={() => {
+              // After entrance, wait, then hide
+              setTimeout(() => setHideLoader(true), 900);
+            }}
+          >
+            <Image
+              src={logo}
+              alt="Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
