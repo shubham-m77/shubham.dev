@@ -14,6 +14,7 @@ export const ContactSection = () => {
       id="contact"
       className="relative py-14 md:py-16 lg:py-20 px-4 md:px-14 lg:px-20 w-full"
     >
+
       {/* Background Card */}
       <div className="overflow-hidden relative z-20 text-center md:text-left rounded-2xl p-8 bg-gradient-to-r from-emerald-300 to-blue-700">
         <div
@@ -33,9 +34,11 @@ export const ContactSection = () => {
           </div>
           <div className="flex items-center justify-center">
             <button
-              onClick={() => {
-                setIsContactBoxOpen(true);
-                document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });              }}
+             onClick={() => {
+    setIsContactBoxOpen(true);
+
+}}
+
               className="text-white rounded-2xl bg-gray-900 transition-all ease-linear duration-300 h-11 px-6 md:px-5 mt-7 md:mt-0 items-center gap-1.5 inline-flex hover:bg-gray-950 group"
             >
               Contact Me
@@ -44,23 +47,25 @@ export const ContactSection = () => {
           </div>
         </div>
       </div>
+   
+     {/* Contact Form Scroll + Animation Section */}
+<div id="contact-scroll-anchor" />
 
-      {/* Contact Form Overlay with Animation */}
-      <AnimatePresence>
-        {isContactBoxOpen && (
-          <motion.div
-            id="contact-form"
-            key="contactForm"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-screen z-[9999] bg-gray-900/80 backdrop-blur-sm flex items-center justify-center px-4"
-          >
-            <ContactForm className="" />
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {isContactBoxOpen && (
+    <motion.div
+      key="contactForm"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="fixed top-0 left-0 w-full h-screen z-[9999] bg-gray-900/50 backdrop-blur-sm flex items-center justify-center"
+    >
+      <ContactForm />
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </div>
   );
 };

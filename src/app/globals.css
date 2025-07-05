@@ -12,7 +12,7 @@ html {
 }
 
 body{background: #1e2042;
-    overflow: hidden;}
+    overflow-x: hidden;}
 
 /* .brand h2{
   color: var(--color-secondary);

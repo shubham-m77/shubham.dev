@@ -90,7 +90,7 @@ const ContactForm = ({ className }: { className?: string }) => {
         
         {/* Close button */}
         <button
-          className="absolute z-50 top-4 right-4 size-8 rounded-full bg-black/5 hover:bg-black/10 transition  backdrop-blur p-1 shadow"
+          className="absolute z-50 top-4 right-4 size-8 rounded-full bg-white/10 hover:bg-black/10 transition  backdrop-blur p-1 shadow"
           onClick={() => setIsContactBoxOpen(false)}
           aria-label="Close Contact Form"
         >
