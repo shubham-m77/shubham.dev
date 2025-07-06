@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import Image from "next/image";
 import grainImg from "@/assets/images/grain.jpg"
 import { Fragment } from "react";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 const testimonials = [
   {
@@ -43,7 +44,7 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return <div className="py-14 md:py-16 lg:py-20">
- 
+    <RevealOnScroll>
             <SectionHeader title={"Happy Clients"} 
             eyebrow="What Client's Says"
             description="Discover, How client's showed their Love about my work."
@@ -67,6 +68,8 @@ export const TestimonialsSection = () => {
       ))]}
     
   </div>
-  </div></div>;
+  </div>
+  </RevealOnScroll>
+  </div>;
 };
 

@@ -3,6 +3,7 @@
 import ArrowIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImg from "@/assets/images/grain.jpg";
 import ContactForm from "@/components/ContactForm";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { useContactBox } from "@/context/ContactContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -14,6 +15,7 @@ export const ContactSection = () => {
       id="contact"
       className="relative py-14 md:py-16 lg:py-20 px-4 md:px-14 lg:px-20 w-full"
     >
+      <RevealOnScroll>
 
       {/* Background Card */}
       <div className="overflow-hidden relative z-20 text-center md:text-left rounded-2xl p-8 bg-gradient-to-r from-emerald-300 to-blue-700">
@@ -47,7 +49,7 @@ export const ContactSection = () => {
           </div>
         </div>
       </div>
-   
+   </RevealOnScroll>
      {/* Contact Form Scroll + Animation Section */}
 <div id="contact-scroll-anchor" />
 

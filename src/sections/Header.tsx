@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; // ✅ Professional icons
+import Link from "next/link";
 
 const logo_2 = "/dev_logo_white-2.svg";
 const logo = "/dev_logo_white.svg";
@@ -42,7 +43,7 @@ export const Header = () => {
       <nav className="flex items-center justify-between h-14 shadow-md rounded-full bg-black/30 backdrop-blur px-4 md:px-8 ">
 
         {/* ✅ Left-aligned logo */}
-        <div className="flex items-center h-full">
+        <Link className="flex items-center h-full" href={"/"}>
           <Image
             src={logo}
             alt="Logo"
@@ -61,7 +62,7 @@ export const Header = () => {
             className="h-8 w-auto object-contain block md:hidden"
             priority
           />
-        </div>
+        </Link>
 
         {/* ✅ Hamburger icon for mobile */}
         <div className="md:hidden z-50">
