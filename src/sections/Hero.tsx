@@ -1,162 +1,180 @@
 "use client";
 import Image from "next/image";
-import ArrowDown from "@/assets/icons/arrow-down.svg"
-import profile from "@/assets/images/profile_pic.png"
-import grainImg from "@/assets/images/grain.jpg"
 import { motion } from "framer-motion";
-import StarIcon from "@/assets/icons/star.svg"
+
+import ArrowDown from "@/assets/icons/arrow-down.svg";
+import profile from "@/assets/images/profile_pic.png";
+import grainImg from "@/assets/images/grain.jpg";
+import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
-import CodeIcon from "@/assets/icons/code.svg"
-import SparkleIcon  from "@/assets/icons/sparkle.svg"
+import CodeIcon from "@/assets/icons/code.svg";
+import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-
 import { useContactBox } from "@/context/ContactContext";
-export const HeroSection = () => {
-const {router} =useContactBox();
-const typewriteWord = "Shubham Mandal"
 
-  return <div id="home" className="pt-32 md:pt-40 lg:pt-44 relative overflow-x-clip z-0 px-4 md:px-16">
-    <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)] pointer-events-none ">
-    <div className="absolute inset-0 -z-30 opacity-5" style={{backgroundImage:`url(${grainImg.src})`}}></div>
-  <div className="size-[640px] hero-ring "></div>
-  <div className="size-[840px] hero-ring "></div>
-  <div className="size-[1040px] hero-ring "></div>
-  <div className="size-[1240px] hero-ring "></div>
-  <HeroOrbit size={750} rotation={-72}>
-    <StarIcon className="size-20 text-blue-300/50"/>
-    </HeroOrbit>
-    <HeroOrbit size={505} rotation={20}>
-    <StarIcon className="size-12 text-emerald-100/80"/>
-    </HeroOrbit>
-     <HeroOrbit size={590} rotation={170}>
-    <StarIcon className="size-8 text-blue-300"/>
-    </HeroOrbit>
-     <HeroOrbit size={550} rotation={-30}>
-    <CodeIcon className="size-6 text-blue-100/50"/>
-    </HeroOrbit>
-    <HeroOrbit size={780} rotation={110}>
-    <CodeIcon className="size-5 text-blue-300/50"/>
-    </HeroOrbit>
-    <HeroOrbit size={250} rotation={140}>
-    <CodeIcon className="size-8 text-emerald-100/20"/>
-    </HeroOrbit>
-    <HeroOrbit size={780} rotation={-20}>
-    <div className="size-2 rounded-full bg-emerald-100/50"/>
-    </HeroOrbit>
-     <HeroOrbit size={650} rotation={120}>
-    <div className="size-3 rounded-full bg-emerald-100"/>
-    </HeroOrbit>
-    <HeroOrbit size={400} rotation={-70}>
-    <SparkleIcon className="size-7 text-emerald-100/10"/>
-    </HeroOrbit>
-    <HeroOrbit size={600} rotation={90}>
-    <SparkleIcon className="size-10 text-emerald-100/10"/>
-    </HeroOrbit>
-    </div>
-    <div className="container "> <div className="flex items-center flex-col justify-center ">
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <motion.div
-    animate={{ y: [0, -10, 0] }}
-    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-  >
-    <Image
-      src={profile}
-      alt="Coder img"
-      width={250}
-      height={250}
-      priority // 👈 this makes it load faster
-      className="relative w-[200px] md:w-[250px]"
-    />
-  </motion.div>
-</motion.div>
-     
-      <motion.div
+const typewriteWord = "Shubham Mandal";
+
+export const HeroSection = () => {
+  const { router } = useContactBox();
+
+  return (
+    <div id="home" className="pt-32 md:pt-40 lg:pt-44 relative overflow-x-clip z-0 px-4 md:px-16">
+      {/* 🔵 Background Grain + Gradient Glow */}
+      <div className="absolute inset-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+        <div className="absolute inset-0 -z-30 opacity-5" style={{ backgroundImage: `url(${grainImg.src})` }} />
+
+        {/* Animated glowing gradient blob */}
+        <motion.div
+          className="absolute -z-20 w-[600px] h-[600px] rounded-full blur-3xl opacity-30"
+          style={{
+            background: "linear-gradient(135deg, #3b82f6, #10b981)",
+            top: "-100px",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Hero rings */}
+        <div className="size-[640px] hero-ring " />
+        <div className="size-[840px] hero-ring " />
+        <div className="size-[1040px] hero-ring " />
+        <div className="size-[1240px] hero-ring " />
+
+        {/* 🌟 Animated HeroOrbit icons */}
+        {[
+          { size: 750, rot: -72, child: <StarIcon className="size-20 text-blue-300/50" /> },
+          { size: 505, rot: 20, child: <StarIcon className="size-12 text-emerald-100/80" /> },
+          { size: 590, rot: 170, child: <StarIcon className="size-8 text-blue-300" /> },
+          { size: 550, rot: -30, child: <CodeIcon className="size-6 text-blue-100/50" /> },
+          { size: 780, rot: 110, child: <CodeIcon className="size-5 text-blue-300/50" /> },
+          { size: 250, rot: 140, child: <CodeIcon className="size-8 text-emerald-100/20" /> },
+          { size: 780, rot: -20, child: <div className="size-2 rounded-full bg-emerald-100/50" /> },
+          { size: 650, rot: 120, child: <div className="size-3 rounded-full bg-emerald-100" /> },
+          { size: 400, rot: -70, child: <SparkleIcon className="size-7 text-emerald-100/10" /> },
+          { size: 600, rot: 90, child: <SparkleIcon className="size-10 text-emerald-100/10" /> },
+        ].map(({ size, rot, child }, i) => (
+          <HeroOrbit key={i} size={size} rotation={rot}>
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.8, 1, 0.8],
+                y: [0, -2, 0],
+              }}
+              transition={{
+                duration: 4 + i,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              {child}
+            </motion.div>
+          </HeroOrbit>
+        ))}
+      </div>
+
+      {/* 🧑‍💻 Main Hero Content */}
+      <div className="container">
+        <div className="flex items-center flex-col justify-center">
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Image
+                src={profile}
+                alt="Coder img"
+                width={250}
+                height={250}
+                priority
+                className="relative w-[200px] md:w-[250px]"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Text + Name */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-base md:text-lg font-medium text-gray-200 mt-4"
           >
-        Hey, I’m
-      </motion.div>
-      <motion.div   initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
- transition={{ delay: 0.7, duration: 0.5 }}>
-     <h1
-  className="text-2xl flex md:text-4xl font-semibold font-serif mt-1"
->
-  <span className="text-blue-700">&lt;</span>
-  <span className="text-white"><TypewriterEffectSmooth text={typewriteWord}/></span>
-  <span className="text-blue-700">/&gt;</span>
-  <span className="ml-1 animate-pulse text-white text-2xl border-[1.5px]"></span>
-</h1>
-  </motion.div>
-   
+            Hey, I’m
+          </motion.div>
 
-           {/* <hr className="w-[80%] border-gray-400/50 mb-2 mt-1  border-[1px] "/> */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
+            <h1 className="text-2xl flex md:text-4xl font-semibold font-serif mt-1">
+              <span className="text-blue-700">&lt;</span>
+              <span className="text-white">
+                <TypewriterEffectSmooth text={typewriteWord} />
+              </span>
+              <span className="text-blue-700">/&gt;</span>
+              <span className="ml-1 animate-pulse text-white text-2xl border-[1.5px]"></span>
+            </h1>
+          </motion.div>
 
-  <div className="max-w-xl ">
-     <motion.p
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-  className="text-sm md:text-base text-medium text-gray-400 mt-2 text-center md:text-left"
->
-  I’m a full stack web developer who turns ideas into engaging digital experiences.  
-  From backend logic to frontend design, I build scalable, user-focused websites  
-  that bring your vision to life with clean code and visual clarity.
-</motion.p>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+            className="text-sm md:text-base text-medium text-gray-400 mt-2 text-center md:text-left max-w-xl"
+          >
+            I’m a full stack web developer who turns ideas into engaging digital experiences.  
+            From backend logic to frontend design, I build scalable, user-focused websites  
+            that bring your vision to life with clean code and visual clarity.
+          </motion.p>
 
-      <div className="flex mt-4 flex-col gap-2 md:gap-4 md:flex-row items-center justify-center font-medium">
-       {/* Explore My Work Button */}
-  <motion.button
-    onClick={() => {
-      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-    }}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.8, duration: 0.4, ease: "easeOut" }}
-    className="inline-flex transition-all duration-300 group h-10 px-6 gap-1 border-white/20 hover:border-white border-2 rounded-xl text-sm items-center justify-center"
-  >
-    <span>Explore my work</span>
-    <motion.span
-      initial={{ rotate: 0 }}
-      whileHover={{ rotate: 20 }}
-      transition={{ type: "spring", stiffness: 200 }}
-    >
-      <ArrowDown className="w-[20px] duration-300 transition group-hover:translate-y-0.5" />
-    </motion.span>
-  </motion.button>
+          {/* Buttons */}
+          <div className="flex mt-4 flex-col gap-2 md:gap-4 md:flex-row items-center justify-center font-medium">
+            {/* Explore My Work */}
+            <motion.button
+              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.4, ease: "easeOut" }}
+              className="inline-flex transition-all duration-300 group h-10 px-6 gap-1 border-white/20 hover:border-white border-2 rounded-xl text-sm items-center justify-center"
+            >
+              <span>Explore my work</span>
+              <motion.span
+                initial={{ rotate: 0 }}
+                whileHover={{ rotate: 20 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <ArrowDown className="w-[20px] duration-300 transition group-hover:translate-y-0.5" />
+              </motion.span>
+            </motion.button>
 
-  {/* Let's Connect Button */}
-  <motion.button
-    onClick={() => {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    }}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 1.0, duration: 0.4, ease: "easeOut" }}
-    className="inline-flex group px-6 gap-1 rounded-xl text-sm bg-white/20 hover:bg-white transition-all duration-300 text-white hover:text-gray-900 items-center justify-center h-10"
-  >
-    <span>Let's Connect</span>
-    <motion.span
-      initial={{ rotate: 0 }}
-      whileHover={{ rotate: 20 }}
-      transition={{ type: "spring", stiffness: 200 }}
-    >
-      👋
-    </motion.span>
-  </motion.button>
-
-      </div></div>
+            {/* Let's Connect */}
+            <motion.button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.4, ease: "easeOut" }}
+              className="inline-flex group px-6 gap-1 rounded-xl text-sm bg-white/20 hover:bg-white transition-all duration-300 text-white hover:text-gray-900 items-center justify-center h-10"
+            >
+              <span>Let's Connect</span>
+              <motion.span
+                initial={{ rotate: 0 }}
+                whileHover={{ rotate: 20 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                👋
+              </motion.span>
+            </motion.button>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
+  );
 };
