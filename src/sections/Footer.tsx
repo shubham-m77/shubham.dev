@@ -47,7 +47,7 @@ export const Footer = () => {
     <div className="px-4 md:px-14 lg:px-20">
       <div className="border-t justify-center md:justify-between gap-8 md:gap-0  flex flex-col-reverse  md:flex-row items-center border-white/15 py-6 text-sm">
         <div className="text-white/80"><span>&copy; 2025 All Rights Reserved</span></div>
-        <p className="bg-gradient-to-r from-[#74ebd5] to-[#ACB6E5] bg-clip-text text-transparent">Made with ❤️ by Shubham</p>
+        <p className="bg-gradient-to-r from-[#74ebd5] text-semibold to-[#ACB6E5] bg-clip-text text-transparent">Made with <span className="text-[#ff0000]">❤️</span> by Shubham</p>
         <nav className="flex justify-center flex-wrap md:flex-row gap-6 z-10 relative">
           {footerLinks.map(link=>
 <Link
