@@ -9,6 +9,7 @@
 }
 html {
   scroll-behavior: smooth;
+   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body{background: #1e2042;

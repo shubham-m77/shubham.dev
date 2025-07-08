@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; // ✅ Professional icons
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeButton";
 
 const logo_2 = "/dev_logo_white-2.svg";
 const logo = "/dev_logo_white.svg";
@@ -111,7 +112,7 @@ export const Header = () => {
     </li>
   ))}
 </ul>
-
+<ThemeToggle/>
       </nav>
     </div>
   );
