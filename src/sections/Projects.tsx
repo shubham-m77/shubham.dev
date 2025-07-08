@@ -56,8 +56,7 @@ export const ProjectsSection = () => {
     <div className="px-4 md:px-14 lg:px-20">
       <RevealOnScroll>
       <SectionHeader title={"Real-world Results"} eyebrow="Featured Projects" description="See how, I transformed concepts into visual experiences."/>
-      </RevealOnScroll>
-      <RevealOnScroll>
+     
       <div className="flex flex-col mt-[37px]  ">
         {portfolioProjects.map((project,idx)=>(
           <div key={project.title} style={{

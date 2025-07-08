@@ -50,10 +50,10 @@ export const Header = () => {
             width={0}
             height={32}
             sizes="auto"
-            className="h-8 w-auto object-contain hidden md:block"
+            className="h-8 w-auto object-contain"
             priority
           />
-          <Image
+          {/* <Image
             src={logo_2}
             alt="Mobile Logo"
             width={0}
@@ -61,7 +61,7 @@ export const Header = () => {
             sizes="auto"
             className="h-8 w-auto object-contain block md:hidden"
             priority
-          />
+          /> */}
         </Link>
 
         {/* ✅ Hamburger icon for mobile */}
