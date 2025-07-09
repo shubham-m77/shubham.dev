@@ -1,0 +1,76 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { Fira_Code, Urbanist } from 'next/font/google';
+import { twMerge } from "tailwind-merge";
+import { ContactBoxProvider } from "@/context/ContactContext";
+import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "next-themes";
+
+const firacode = Fira_Code({ subsets: ["latin"], variable: '--font-serif' });
+const urbanistFont = Urbanist({ subsets: ["latin"], variable: '--font-sans' });
+
+export const metadata: Metadata = {
+  title: "Shubham M | Full Stack Developer",
+  description: "A passionate full-stack MERN Developer crafting modern, scalable, and responsive web applications.",
+  icons: {
+    icon: "/dev_logo_2.svg", // or "/logo.png" or any image path in public/
+  },
+  keywords: [
+    "Shubham Mandal",
+    "MERN Developer",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js",
+    "Web Developer Portfolio",
+    "MongoDB",
+    "Express.js",
+    "Node.js",
+    "Full Stack Website Developer"
+  ],
+  authors: [{ name: "Shubham Mandal", url: "https://shubham-devloper.vercel.app" }],
+  creator: "Shubham Mandal",
+  publisher: "Shubham Mandal",
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
+   openGraph: {
+    title: "Shubham M | MERN Stack Developer Portfolio",
+    description: "Explore modern full-stack web apps, built using MongoDB, Express, React, and Node.js.",
+    url: "https://shubham-developer.vercel.app",
+    siteName: "Shubham Mandal",
+    images: [
+      {
+        url: "https://shubham-developer.vercel.app/dev_logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "Shubham Mandal Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  metadataBase: new URL("https://shubham-devloper.vercel.app"),
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+  <body className={twMerge(urbanistFont.variable,firacode.variable,'min-h-screen font-sans antialiased bg-gradient-to-b from-secondary to-gray-100 text-white dark:text-white dark:from-[#0c0c24] dark:to-gray-900')}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ContactBoxProvider>
+          <Toaster />
+          {children}
+        </ContactBoxProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
