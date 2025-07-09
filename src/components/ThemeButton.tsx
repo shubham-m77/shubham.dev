@@ -18,7 +18,7 @@ export const ThemeToggle = () => {
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle Theme"
       whileTap={{ scale: 0.85 }}
-      className="w-10 h-10 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 transition-colors duration-300 border border-white/10"
+      className="w-10 h-10 rounded-full  flex items-center justify-center bg-gray-400/10 hover:bg-gray-400/20 dark:bg-white/10 dark:hover:bg-white/20 transition-colors duration-300 border border-gray-400/10 dark:border-white/10"
     >
       <AnimatePresence mode="wait">
         {isDark ? (

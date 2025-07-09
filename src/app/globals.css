@@ -26,7 +26,7 @@ body{background: #1e2042;
     .navlink{
         @apply px-4 py-1.5  rounded-full text-sm md:text-base md:gap-3 text-white/70 hover:bg-white/10 hover:text-white transition-all duration-300 ease-linear
     }
-    .hero-ring{@apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-blue-700/5 shadow-[0_0_80px_inset] shadow-blue-700/5 ;}
+    .hero-ring{@apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-blue-700/20 shadow-blue-700/20 dark:border-blue-700/5 shadow-[0_0_80px_inset] dark:shadow-blue-700/5 ;}
   :root {
         --background:0 0% 100%;
         --foreground:222.2 84% 4.9%;
@@ -91,7 +91,7 @@ body{background: #1e2042;
 }
 @keyframes blink {
   0%, 100% { border-color: transparent; }
-  50% { border-color: white; }
+  50% { border-color:currentColor; }
 }
 
 @layer base {
