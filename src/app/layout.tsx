@@ -62,15 +62,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
     <html lang="en" suppressHydrationWarning>
   <body className={twMerge(urbanistFont.variable,firacode.variable,'min-h-screen font-sans antialiased bg-gradient-to-b from-secondary to-gray-100 text-white dark:text-white dark:from-[#0c0c24] dark:to-gray-900')}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <ContactBoxProvider>
           <Toaster />
           {children}
         </ContactBoxProvider>
-        </ThemeProvider>
       </body>
     </html>
+    </ThemeProvider>
   );
 }

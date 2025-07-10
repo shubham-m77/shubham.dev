@@ -12,8 +12,7 @@ html {
    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-body{background: #1e2042;
-    overflow-x: hidden;}
+body{overflow-x: hidden;}
 
 /* .brand h2{
   color: var(--color-secondary);
