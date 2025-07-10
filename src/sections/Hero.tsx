@@ -3,8 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import ArrowDown from "@/assets/icons/arrow-down.svg";
-import profilePic from "/profile_pic.svg";
-import darkProfilePic from "/profile_pic_2.svg";
+// import profilePic from "/profile_pic.svg";
+// import darkProfilePic from "/profile_pic_2.svg";
 import grainImg from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
@@ -90,7 +90,7 @@ export const HeroSection = () => {
             >
               {/* For Dark Screen */}
               <Image
-                src={darkProfilePic}
+                src={"/profile_pic_2.svg"}
                 alt="Coder img"
                 width={250}
                 height={250}
@@ -99,7 +99,7 @@ export const HeroSection = () => {
               />
               {/* For Light Screen */}
               <Image
-                src={profilePic}
+                src={"/profile_pic.svg"}
                 alt="Coder img"
                 width={250}
                 height={250}
