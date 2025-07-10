@@ -3,7 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import ArrowDown from "@/assets/icons/arrow-down.svg";
-import profile from "@/assets/images/profile_pic.png";
+import profilePic from "/profile_pic.svg";
+import darkProfilePic from "/profile_pic_2.svg";
 import grainImg from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
@@ -87,14 +88,25 @@ export const HeroSection = () => {
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
+              {/* For Dark Screen */}
               <Image
-                src={profile}
+                src={darkProfilePic}
                 alt="Coder img"
                 width={250}
                 height={250}
                 priority
-                className="relative w-[200px] md:w-[250px]"
+                className="relative w-[200px] md:w-[250px] hidden dark:block"
               />
+              {/* For Light Screen */}
+              <Image
+                src={profilePic}
+                alt="Coder img"
+                width={250}
+                height={250}
+                priority
+                className="relative w-[200px] md:w-[250px] block dark:hidden"
+              />
+
             </motion.div>
           </motion.div>
 
@@ -109,7 +121,7 @@ export const HeroSection = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
-            <h1 className="text-2xl flex md:text-4xl font-semibold font-serif mt-1">
+            <h1 className="text-3xl flex md:text-4xl font-semibold font-serif mt-1">
               <span className="text-blue-700">&lt;</span>
               <span className="text-gray-950 dark:text-white">
                 <TypewriterEffectSmooth text={typewriteWord} />
@@ -141,7 +153,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.4, ease: "easeOut" }}
-              className="inline-flex transition-all duration-300 group h-10 px-6 gap-1 border-black/20 hover:border-gray-900 dark:order-white/20 dark:hover:border-white border-2 rounded-xl text-sm text-gray-800  dark:text-white items-center justify-center"
+              className="inline-flex transition-all duration-300 group h-10 px-6 gap-1 border-black/20 hover:border-gray-900 dark:border-white/20 dark:hover:border-white border-2 rounded-xl text-sm text-gray-800  dark:text-white items-center justify-center"
             >
               <span>Explore my work</span>
               <motion.span

@@ -98,10 +98,10 @@ className="hidden md:flex gap-3 text-gray-900   dark:text-gray-50  p-4 backdrop-
     <li key={section}>
       <button
         onClick={() => scrollToSection(section)}
-        className={`navlink px-4 py-2 rounded-full transition duration-200 ${
+        className={`navlink ${
           active === section
-  ? " dark:text-gray-900 dark:hover:bg-white/70 bg-gradient-to-r from-blue-900 to-blue-700 dark:from-gray-50 dark:to-slate-50 text-white"
-  : "dark:text-white dark:hover:bg-white/20 text-gray-900 hover:bg-white/50 hover:text-gray-900"
+  ? " dark:text-gray-900 dark:hover:bg-white/70 bg-gradient-to-r from-blue-900 to-blue-700 hover:from-blue-900/50 hover:to-blue-700/50 dark:from-gray-50 dark:to-slate-50 text-white"
+  : "dark:text-white dark:hover:bg-white/20 text-gray-900 hover:bg-white/30 hover:text-gray-900"
 
         }`}
       >

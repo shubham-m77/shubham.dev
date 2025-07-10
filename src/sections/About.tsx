@@ -87,7 +87,7 @@ export const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className=" h-[320px] flex flex-col outline outline-[2px] outline-gray-300/25 rounded-3xl bg-white/10 backdrop-blur-sm relative overflow-hidden"
+              className=" h-[320px] flex flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="My Reads" desc="Spiritual reading helps me stay focused, balanced, and growth-minded." />
@@ -106,7 +106,7 @@ export const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="h-[320px] flex flex-col outline outline-[2px] outline-gray-300/25 rounded-3xl bg-white/10 backdrop-blur-sm relative overflow-hidden"
+              className="h-[320px] flex flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="My Toolbox" desc="These are the tools and technologies that power my development workflow." />
@@ -128,7 +128,7 @@ export const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className=" flex h-[320px] flex-col outline outline-[2px] outline-gray-300/25 rounded-3xl bg-white/10 backdrop-blur-sm relative overflow-hidden"
+              className=" flex h-[320px] flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="Beyond The Code" desc="Where code ends, pursuits begins—shaped by clarity, vision, and simplicity." />
@@ -158,7 +158,7 @@ export const AboutSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="flex items-center justify-center h-[320px] outline outline-[2px] outline-gray-300/25 rounded-3xl bg-white/10 backdrop-blur-sm relative overflow-hidden"
+              className="flex items-center justify-center h-[320px] outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <MapboxMap />
