@@ -65,6 +65,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
             <ThemeProvider attribute="class" defaultTheme="dark">
     <html lang="en" suppressHydrationWarning>
+       {/* ✅ Remove saved theme cookie before hydration */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              localStorage.removeItem('theme');
+            } catch (e) {}
+          `,
+        }}
+      />
   <body className={twMerge(urbanistFont.variable,firacode.variable,kanit.variable,'min-h-screen font-sans antialiased bg-gradient-to-b from-secondary to-gray-100 text-white dark:text-white dark:from-gray-900 dark:to-[#0c0c24]')}>
         <ContactBoxProvider>
           <Toaster />
