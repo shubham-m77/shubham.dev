@@ -90,21 +90,21 @@ export const HeroSection = () => {
             >
               {/* For Dark Screen */}
               <Image
-                src={"/profile_pic_2.svg"}
+                src={"/profile_2.svg"}
                 alt="Coder img"
                 width={250}
                 height={250}
                 priority
-                className="relative w-[200px] md:w-[250px] hidden dark:block"
+                className="relative w-[250px] hidden dark:block"
               />
               {/* For Light Screen */}
               <Image
-                src={"/profile_pic.svg"}
+                src={"/profile.svg"}
                 alt="Coder img"
                 width={250}
                 height={250}
                 priority
-                className="relative w-[200px] md:w-[250px] block dark:hidden"
+                className="relative w-[250px] block dark:hidden"
               />
 
             </motion.div>
@@ -121,7 +121,7 @@ export const HeroSection = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
-            <h1 className="text-3xl flex md:text-4xl font-semibold font-serif mt-1">
+            <h1 className="text-3xl flex md:text-4xl font-semibold font-mono mt-1">
               <span className="text-blue-700">&lt;</span>
               <span className="text-gray-950 dark:text-white">
                 <TypewriterEffectSmooth text={typewriteWord} />

@@ -80,40 +80,31 @@ export const AboutSection = () => {
         {/* 🔸 Row 1 */}
         <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
           {/* Books Card */}
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="md:col-span-2 lg:col-span-1 overflow-hidden p-[2px]">
           <RevealOnScroll direction="left">
-            <motion.div
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className=" h-[320px] flex flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
+            <div
+              className=" h-[320px] flex flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="My Reads" desc="Spiritual reading helps me stay focused, balanced, and growth-minded." />
               <div className="w-48 mx-auto mt-2">
                 <Image src={book_cover} alt="Book cover" />
               </div>
-            </motion.div>
+            </div>
           </RevealOnScroll>
           </div>
 
           {/* Tools Card */}
-          <div className="md:col-span-3 lg:col-span-2 ">
+          <div className="md:col-span-3 lg:col-span-2 overflow-hidden p-[2px]">
           <RevealOnScroll direction="right">
-            <motion.div
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="h-[320px] flex flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
+            <div className="h-[320px] flex flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="My Toolbox" desc="These are the tools and technologies that power my development workflow." />
               <div className="w-full flex mt-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
                 <ToolBoxItems items={toolBoxItem} />
               </div>
-            </motion.div>
+            </div>
           </RevealOnScroll>
         </div>
         </div>
@@ -121,14 +112,9 @@ export const AboutSection = () => {
         {/* 🔸 Row 2 */}
         <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8">
           {/* Hobbies Card */}
-          <div className="md:col-span-3 lg:col-span-2 ">
+          <div className="md:col-span-3 lg:col-span-2 overflow-hidden p-[2px]">
           <RevealOnScroll direction="left">
-            <motion.div
-              variants={containerStagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className=" flex h-[320px] flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
+            <div className=" flex h-[320px] flex-col outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="Beyond The Code" desc="Where code ends, pursuits begins—shaped by clarity, vision, and simplicity." />
@@ -147,22 +133,17 @@ export const AboutSection = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </RevealOnScroll>
             </div>
           {/* Maps Card */}
-          <div className="md:col-span-2 lg:col-span-1 ">
+          <div className="md:col-span-2 lg:col-span-1 overflow-hidden p-[2px]">
           <RevealOnScroll direction="right">
-            <motion.div
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex items-center justify-center h-[320px] outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative overflow-hidden"
+            <div  className="flex items-center justify-center h-[320px] outline outline-[2px] rounded-3xl outline-blue-700/25 dark:outline-gray-300/25  bg-blue-700/10 dark:bg-white/10 backdrop-blur-sm relative"
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <MapboxMap />
-            </motion.div>
+            </div>
           </RevealOnScroll>
         </div>
         </div>

@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Fira_Code, Urbanist } from 'next/font/google';
+import { Fira_Code, Urbanist,Kanit } from 'next/font/google';
 import { twMerge } from "tailwind-merge";
 import { ContactBoxProvider } from "@/context/ContactContext";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "next-themes";
 
-const firacode = Fira_Code({ subsets: ["latin"], variable: '--font-serif' });
+const firacode = Fira_Code({ subsets: ["latin"], variable: '--font-mono' });
+const kanit = Kanit({ subsets: ["latin"], variable: '--font-serif',weight:"400" });
 const urbanistFont = Urbanist({ subsets: ["latin"], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: "Shubham M | Full Stack Developer",
   description: "A passionate full-stack MERN Developer crafting modern, scalable, and responsive web applications.",
   icons: {
-    icon: "/dev_logo_2.svg", // or "/logo.png" or any image path in public/
+    icon: "/web_logo.svg", // or "/logo.png" or any image path in public/
   },
   keywords: [
     "Shubham Mandal",
@@ -62,9 +63,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+            <ThemeProvider attribute="class" defaultTheme="dark">
     <html lang="en" suppressHydrationWarning>
-  <body className={twMerge(urbanistFont.variable,firacode.variable,'min-h-screen font-sans antialiased bg-gradient-to-b from-secondary to-gray-100 text-white dark:text-white dark:from-gray-900 dark:to-[#0c0c24]')}>
+  <body className={twMerge(urbanistFont.variable,firacode.variable,kanit.variable,'min-h-screen font-sans antialiased bg-gradient-to-b from-secondary to-gray-100 text-white dark:text-white dark:from-gray-900 dark:to-[#0c0c24]')}>
         <ContactBoxProvider>
           <Toaster />
           {children}

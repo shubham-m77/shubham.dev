@@ -28,7 +28,7 @@ const ToolBoxItems = ({
               className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium outline outline-2  outline-blue-700/15 bg-blue-700/10 dark:outline-white/10 dark:bg-white/5 backdrop-blur"
             >
               {item.icon}
-              <span className="text-gray-900 dark:tex-gray-50">{item.title}</span>
+              <span className="text-gray-900 dark:text-gray-50">{item.title}</span>
             </div>
           ))
         )}

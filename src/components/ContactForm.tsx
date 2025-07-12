@@ -113,7 +113,7 @@ const ContactForm = ({ className }: { className?: string }) => {
                     className="absolute inset-0 opacity-5 -z-10 rounded-xl"
                     style={{ backgroundImage: `url(${grainImg.src})` }}
                   />
-            <h2 className="text-2xl font-semibold mb-2 font-serif tracking-tight text-gray-900 [line-height:30px]">Let's Get in touch with me to <span className="text-blue-700">Build Something Great</span>!</h2>
+            <h2 className="text-2xl font-medium mb-2 font-serif tracking-normal text-gray-900 [line-height:30px]">Let's Get in touch with me to <span className="text-gray-50">Build Something Great</span>!</h2>
             <hr className="border-white/20 border-[1.5px] my-4"/>
             <div className="space-y-3 mt-4">
               {contactOptions.map((item, key) => (

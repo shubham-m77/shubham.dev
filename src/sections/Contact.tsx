@@ -13,22 +13,22 @@ export const ContactSection = () => {
   return (
     <div
       id="contact"
-      className="relative py-14 md:py-16 lg:py-20 px-4 md:px-14 lg:px-20 w-full"
+      className="relative py-14 md:py-16 lg:py-20 px-4 md:px-14 lg:px-20 w-full z-50"
     >
       <RevealOnScroll>
 
       {/* Background Card */}
-      <div className="overflow-hidden relative z-20 text-center md:text-left rounded-2xl p-8 bg-gradient-to-r from-emerald-300 to-blue-700">
+      <div className="overflow-hidden relative  text-center md:text-left rounded-2xl p-8 bg-gradient-to-r from-emerald-300 to-blue-700">
         <div
           className="absolute inset-0 opacity-5 -z-10 rounded-2xl"
           style={{ backgroundImage: `url(${grainImg.src})` }}
         />
         <div className="flex flex-col md:flex-row md:justify-between items-center">
           <div className="md:w-[70%] lg:w-[80%]">
-            <h2 className="text-gray-950 text-2xl font-semibold font-serif leading-tight tracking-tighter">
+            <h2 className="text-gray-950 text-2xl font-medium font-serif leading-tight tracking-normal">
               Collaborate With Me — Let’s Build Something Great
             </h2>
-            <p className="text-gray-950/80 leading-tight font-medium mt-3 md:text-sm">
+            <p className="text-gray-800/80 leading-tight font-[450] mt-3 md:text-sm">
               Have a project that demands impact and precision? Let’s connect to
               explore how I can help you design, develop, and deliver scalable
               web solutions — tailored to your goals and built for growth

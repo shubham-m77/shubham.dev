@@ -25,7 +25,8 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			sans: 'var(--font-sans)',
-  			serif: 'var(--font-serif)'
+  			serif: 'var(--font-serif)',
+			mono:'var(--font-mono)',
   		},
   		animation: {
   			'move-left': 'move-left 30s linear infinite',

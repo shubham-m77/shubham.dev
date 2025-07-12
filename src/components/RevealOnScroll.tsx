@@ -1,63 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 interface RevealOnScrollProps {
-  children: ReactNode;
+  children: React.ReactNode;
   direction?: "up" | "down" | "left" | "right";
+  delay?: number;
 }
 
-const getVariants = (direction: string) => {
-  switch (direction) {
-    case "left":
-      return {
-        hidden: { opacity: 0, translateX: -40 },
-        visible: {
-          opacity: 1,
-          translateX: 0,
-          transition: { duration: 0.5, ease: "easeOut" },
-        },
-      };
-    case "right":
-      return {
-        hidden: { opacity: 0, translateX: 40 },
-        visible: {
-          opacity: 1,
-          translateX: 0,
-          transition: { duration: 0.5, ease: "easeOut" },
-        },
-      };
-    case "down":
-      return {
-        hidden: { opacity: 0, y: -40 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, ease: "easeOut" },
-        },
-      };
-    default: // "up"
-      return {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.5, ease: "easeOut" },
-        },
-      };
-  }
+const getVariants = (direction: string, delay = 0) => {
+  const transition = { duration: 0.6, ease: "easeOut", delay };
+
+  const offset = 40;
+  const variants = {
+    hidden: {
+      opacity: 0,
+      x: direction === "left" ? -offset : direction === "right" ? offset : 0,
+      y: direction === "up" ? offset : direction === "down" ? -offset : 0,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition,
+    },
+  };
+
+  return variants;
 };
 
-export const RevealOnScroll = ({ children, direction = "up" }: RevealOnScrollProps) => {
-  const variants = getVariants(direction);
+export const RevealOnScroll = ({
+  children,
+  direction = "up",
+  delay = 0,
+}: RevealOnScrollProps) => {
+  const ref = useRef(null);
+  const controls = useAnimation();
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
+
+  useEffect(() => {
+    if (isInView) controls.start("visible");
+  }, [isInView, controls]);
 
   return (
     <motion.div
+      ref={ref}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
-      variants={variants}
+      animate={controls}
+      variants={getVariants(direction, delay)}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
