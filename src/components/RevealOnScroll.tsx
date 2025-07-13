@@ -1,7 +1,10 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface RevealOnScrollProps {
   children: React.ReactNode;
@@ -9,49 +12,67 @@ interface RevealOnScrollProps {
   delay?: number;
 }
 
-const getVariants = (direction: string, delay = 0) => {
-  const transition = { duration: 0.6, ease: "easeOut", delay };
-
-  const offset = 40;
-  const variants = {
-    hidden: {
-      opacity: 0,
-      x: direction === "left" ? -offset : direction === "right" ? offset : 0,
-      y: direction === "up" ? offset : direction === "down" ? -offset : 0,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition,
-    },
-  };
-
-  return variants;
-};
-
 export const RevealOnScroll = ({
   children,
   direction = "up",
   delay = 0,
 }: RevealOnScrollProps) => {
-  const ref = useRef(null);
-  const controls = useAnimation();
-  const isInView = useInView(ref, { once: true, amount: 0.4 });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isInView) controls.start("visible");
-  }, [isInView, controls]);
+    const element = ref.current;
+    if (!element) return;
+
+    const offset = 40;
+    const animVars: gsap.TweenVars = {
+      opacity: 0,
+      y: 0,
+      x: 0,
+    };
+
+    // Set initial offset based on direction
+    switch (direction) {
+      case "up":
+        animVars.y = offset;
+        break;
+      case "down":
+        animVars.y = -offset;
+        break;
+      case "left":
+        animVars.x = offset;
+        break;
+      case "right":
+        animVars.x = -offset;
+        break;
+    }
+
+    gsap.fromTo(
+      element,
+      animVars,
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 0.8,
+        delay,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // Cleanup on unmount
+    return () => {
+      ScrollTrigger.getById(element as any)?.kill(true);
+    };
+  }, [direction, delay]);
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={getVariants(direction, delay)}
-      style={{ willChange: "transform, opacity" }}
-    >
+    <div ref={ref} style={{ willChange: "transform, opacity" }}>
       {children}
-    </motion.div>
+    </div>
   );
 };
