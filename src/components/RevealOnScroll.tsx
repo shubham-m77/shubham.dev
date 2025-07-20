@@ -55,10 +55,10 @@ export const RevealOnScroll = ({
         y: 0,
         duration: 0.8,
         delay,
-        ease: "power3.out",
+        ease: "power4.out",
         scrollTrigger: {
           trigger: element,
-          start: "top 80%",
+          start: "top 50%",
           toggleActions: "play none none none",
         },
       }
