@@ -65,9 +65,9 @@ export const RevealOnScroll = ({
     );
 
     // Cleanup on unmount
-    return () => {
-      ScrollTrigger.getById(element as any)?.kill(true);
-    };
+    // return () => {
+    //   ScrollTrigger.getById(element as any)?.kill(true);
+    // };
   }, [direction, delay]);
 
   return (
