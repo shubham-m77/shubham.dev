@@ -147,7 +147,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-            className="text-sm md:text-base text-medium text-gray-700 dark:text-gray-400 mt-2 text-center md:text-left max-w-xl"
+            className="text-sm md:text-base text-justify text-medium text-gray-700 dark:text-gray-400 mt-2 text-center md:text-left max-w-xl"
           >
             I’m a full stack web developer who turns ideas into engaging digital experiences.
             From backend logic to frontend design, I build scalable, user-focused websites
