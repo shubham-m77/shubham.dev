@@ -17,7 +17,7 @@ import ProfileLight from "../../public/profile_2.svg";
 
 const typewriteWord = "Shubham Mandal";
 
-// Inline SVG rendering utility
+// Inline SVG rendering utility 
 function InlineSVG({ svg, className, alt }: { svg: any; className?: string; alt?: string }) {
   // svg is a ReactComponent (from SVGR) or a module with .default
   const SVGComponent = svg.default || svg;
@@ -111,11 +111,11 @@ export const HeroSection = () => {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Instantly render SVG for light/dark mode */}
-              <div className="relative w-[250px]">
+              <div className="relative w-[300px]">
                 {isDark ? (
-                  <InlineSVG svg={ProfileDark} fill className=" dark:block" alt="Coder img dark" />
+                  <InlineSVG svg={ProfileDark} className="dark:block" alt="Coder img dark" />
                 ) : (
-                  <InlineSVG svg={ProfileLight} fill className=" block" alt="Coder img" />
+                  <InlineSVG svg={ProfileLight} className="block" alt="Coder img" />
                 )}
               </div>
             </motion.div>
@@ -126,7 +126,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-base md:text-lg font-medium text-gray-800 dark:text-gray-200 mt-4"
+            className="text-base md:text-lg font-medium text-gray-800 dark:text-gray-200 mt-4 text-left"
           >
             Hey, I’m
           </motion.div>
@@ -149,8 +149,8 @@ export const HeroSection = () => {
             transition={{ delay: 1, duration: 1, ease: "easeOut" }}
             className="text-sm md:text-base text-medium text-gray-700 dark:text-gray-400 mt-2 text-center md:text-left max-w-xl"
           >
-            I’m a full stack web developer who turns ideas into engaging digital experiences.  
-            From backend logic to frontend design, I build scalable, user-focused websites  
+            I’m a full stack web developer who turns ideas into engaging digital experiences.
+            From backend logic to frontend design, I build scalable, user-focused websites
             that bring your vision to life with clean code and visual clarity.
           </motion.p>
 
