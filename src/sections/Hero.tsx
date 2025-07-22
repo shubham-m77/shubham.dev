@@ -113,9 +113,9 @@ export const HeroSection = () => {
               {/* Instantly render SVG for light/dark mode */}
               <div className="relative w-[300px]">
                 {isDark ? (
-                  <InlineSVG svg={ProfileDark} className="w-[300px] dark:block" alt="Coder img dark" />
+                  <InlineSVG svg={ProfileDark} className="w-[300px] h-[300px] dark:block" alt="Coder img dark" />
                 ) : (
-                  <InlineSVG svg={ProfileLight} className="w-[300px] block" alt="Coder img" />
+                  <InlineSVG svg={ProfileLight} className="w-[300px] h-[300px] block" alt="Coder img" />
                 )}
               </div>
             </motion.div>
