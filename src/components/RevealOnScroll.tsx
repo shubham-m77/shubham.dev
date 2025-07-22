@@ -46,32 +46,59 @@ export const RevealOnScroll = ({
         break;
     }
 
-    gsap.fromTo(
-      element,
-      animVars,
-      {
+    // Set initial state immediately for better performance
+    gsap.set(element, animVars);
+
+    // Use requestAnimationFrame to ensure smoothness
+    let animation: gsap.core.Tween | null = null;
+    let trigger: ScrollTrigger | null = null;
+
+    requestAnimationFrame(() => {
+      animation = gsap.to(element, {
         opacity: 1,
         x: 0,
         y: 0,
-        duration: 0.8,
+        duration: 0.7, // slightly shorter for snappier feel
         delay,
-        ease: "power4.out",
+        ease: "power2.out", // lighter ease for smoother effect
+        overwrite: "auto",
         scrollTrigger: {
           trigger: element,
-          start: "top 50%",
+          start: "top 50%", // trigger a bit earlier for smoother entry
           toggleActions: "play none none none",
+          onEnter: () => {
+            // Only animate if not already visible
+            if (animation && !animation.isActive()) {
+              animation.play();
+            }
+          },
+          // Clean up on leave if you want to re-animate on re-enter
+          // onLeaveBack: () => {
+          //   gsap.set(element, animVars);
+          // },
         },
-      }
-    );
+      });
+      trigger = ScrollTrigger.getById(element as any) || null;
+    });
 
     // Cleanup on unmount
-    // return () => {
-    //   ScrollTrigger.getById(element as any)?.kill(true);
-    // };
+    return () => {
+      if (animation) animation.kill();
+      if (trigger) trigger.kill();
+      ScrollTrigger.refresh();
+    };
   }, [direction, delay]);
 
   return (
-    <div ref={ref} style={{ willChange: "transform, opacity" }}>
+    <div
+      ref={ref}
+      style={{
+        willChange: "transform, opacity",
+        backfaceVisibility: "hidden",
+        WebkitFontSmoothing: "antialiased",
+        // Reduce paint issues on some browsers
+      }}
+    >
       {children}
     </div>
   );

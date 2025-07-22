@@ -1,10 +1,8 @@
 "use client";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import ArrowDown from "@/assets/icons/arrow-down.svg";
-// import profilePic from "/profile_pic.svg";
-// import darkProfilePic from "/profile_pic_2.svg";
 import grainImg from "@/assets/images/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
@@ -13,10 +11,33 @@ import SparkleIcon from "@/assets/icons/sparkle.svg";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { useContactBox } from "@/context/ContactContext";
 
+// Direct SVG imports for profile images for instant render, no network delay
+import ProfileLight from "../../public/profile.svg";
+import ProfileDark from "../../public/profile_2.svg";
+
 const typewriteWord = "Shubham Mandal";
+
+// Inline SVG rendering utility
+function InlineSVG({ svg, className, alt }: { svg: any; className?: string; alt?: string }) {
+  // svg is a ReactComponent (from SVGR) or a module with .default
+  const SVGComponent = svg.default || svg;
+  return <SVGComponent className={className} aria-label={alt} />;
+}
 
 export const HeroSection = () => {
   const { router } = useContactBox();
+
+  // Detect dark mode for instant SVG switching
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Use matchMedia to detect dark mode instantly
+    const match = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDark(match.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+    match.addEventListener("change", handler);
+    return () => match.removeEventListener("change", handler);
+  }, []);
 
   return (
     <div id="home" className="pt-32 md:pt-40 lg:pt-44 relative overflow-x-clip z-0 px-4 md:px-16">
@@ -80,33 +101,23 @@ export const HeroSection = () => {
         <div className="flex items-center flex-col justify-center">
           {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
+            style={{ opacity: 1, y: 0 }}
           >
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              {/* For Dark Screen */}
-              <Image
-                src={"/profile_2.svg"}
-                alt="Coder img"
-                width={250}
-                height={250}
-                priority
-                className="relative w-[250px] hidden dark:block"
-              />
-              {/* For Light Screen */}
-              <Image
-                src={"/profile.svg"}
-                alt="Coder img"
-                width={250}
-                height={250}
-                priority
-                className="relative w-[250px] block dark:hidden"
-              />
-
+              {/* Instantly render SVG for light/dark mode */}
+              <div className="relative w-[250px] h-[250px]">
+                {isDark ? (
+                  <InlineSVG svg={ProfileDark} className="w-[250px] h-[250px] dark:block" alt="Coder img dark" />
+                ) : (
+                  <InlineSVG svg={ProfileLight} className="w-[250px] h-[250px] block" alt="Coder img" />
+                )}
+              </div>
             </motion.div>
           </motion.div>
 
