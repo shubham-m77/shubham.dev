@@ -90,7 +90,7 @@ className="hidden md:flex gap-3 text-gray-900   dark:text-gray-50  p-4 backdrop-
           <ul
             className={`
     fixed top-20 left-4 right-4 flex-col gap-1  text-gray-900   dark:text-gray-50  p-4  transition-all duration-500 ease-in-out transform origin-top
-    ${isMenuOpen ? "flex opacity-100 scale-100 z-50 items-center justify-center translate-y-0 bg-black/10 dark:bg-black/50 backdrop-blur-md rounded-2xl" : "opacity-0 scale-95 -translate-y-5 pointer-events-auto"}
+    ${isMenuOpen ? "flex opacity-100 scale-100 z-100 items-center justify-center translate-y-0 bg-black/10 dark:bg-black/50 backdrop-blur-md rounded-2xl" : "opacity-0 scale-95 -translate-y-5 pointer-events-auto"}
     md:static md:flex md:flex-row md:gap-2 md:bg-transparent md:backdrop-blur-none md:p-0 md:opacity-100 md:scale-100 md:translate-y-0
   `}
           >

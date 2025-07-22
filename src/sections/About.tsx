@@ -97,7 +97,7 @@ export const AboutSection = () => {
             >
               <div className="absolute inset-0 opacity-5 -z-10 rounded-3xl" style={{ backgroundImage: `url(${grainImg.src})` }} />
               <CardHeader title="My Reads" desc="Spiritual reading helps me stay focused, balanced, and growth-minded." />
-              <div className="w-48 mx-auto mt-2">
+              <div className="w-40 mx-auto mt-2">
                 <Image src={book_cover} alt="Book cover" />
               </div>
             </div>

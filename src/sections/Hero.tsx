@@ -12,8 +12,8 @@ import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { useContactBox } from "@/context/ContactContext";
 
 // Direct SVG imports for profile images for instant render, no network delay
-import ProfileLight from "../../public/profile.svg";
-import ProfileDark from "../../public/profile_2.svg";
+import ProfileDark from "../../public/profile.svg";
+import ProfileLight from "../../public/profile_2.svg";
 
 const typewriteWord = "Shubham Mandal";
 
@@ -111,11 +111,11 @@ export const HeroSection = () => {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Instantly render SVG for light/dark mode */}
-              <div className="relative w-[250px] h-[250px]">
+              <div className="relative w-[250px]">
                 {isDark ? (
-                  <InlineSVG svg={ProfileDark} className="w-[250px] h-[250px] dark:block" alt="Coder img dark" />
+                  <InlineSVG svg={ProfileDark} fill className=" dark:block" alt="Coder img dark" />
                 ) : (
-                  <InlineSVG svg={ProfileLight} className="w-[250px] h-[250px] block" alt="Coder img" />
+                  <InlineSVG svg={ProfileLight} fill className=" block" alt="Coder img" />
                 )}
               </div>
             </motion.div>

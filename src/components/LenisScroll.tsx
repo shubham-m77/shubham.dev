@@ -7,7 +7,7 @@ export function LenisScroll({ children }: { children: React.ReactNode }) {
             root
             options={{
                 lerp: 0.1, // lower = smoother, higher = snappier
-                duration: 1.2, // duration in seconds for scroll animations
+                duration: 1.1, // duration in seconds for scroll animations
                 touchMultiplier: 1.5, // enhances touch scroll feel
             }}
         >
